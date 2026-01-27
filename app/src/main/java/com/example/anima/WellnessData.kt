@@ -6,6 +6,5 @@ data class WellnessData(
     val sleepDuration: String,
     val sleepQuality: String,
     val waterIntake: Float,
-    val waterGoal: Float,
-    val heartRate: Int
+    val waterGoal: Float
 )

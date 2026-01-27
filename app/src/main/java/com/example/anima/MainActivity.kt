@@ -18,15 +18,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Mock data representing backend response
+        // Get the name passed from LoginActivity
+        val loggedInUserName = intent.getStringExtra("USER_NAME") ?: "User"
+
+        // Mock data representing backend response, using the dynamic name
         val wellnessData = WellnessData(
-            userName = "Loraine",
+            userName = loggedInUserName,
             date = "Monday, Oct 23",
             sleepDuration = "8h 15m",
             sleepQuality = "Excellent",
             waterIntake = 2.1f,
-            waterGoal = 3.0f,
-            heartRate = 68
+            waterGoal = 3.0f
         )
 
         updateUI(wellnessData)
@@ -41,7 +43,5 @@ class MainActivity : AppCompatActivity() {
         
         findViewById<TextView>(R.id.tvWaterIntake).text = "${data.waterIntake} L"
         findViewById<TextView>(R.id.tvWaterGoal).text = "Goal: ${data.waterGoal} L"
-        
-        findViewById<TextView>(R.id.tvBPM).text = "${data.heartRate} BPM"
     }
 }
