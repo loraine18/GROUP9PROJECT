@@ -12,11 +12,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
 class SignUpActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,7 @@ class SignUpActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_signup)
         
+        auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -61,38 +64,51 @@ class SignUpActivity : AppCompatActivity() {
 
         btnSignUp.setOnClickListener {
             val name = etName.text.toString().trim()
-            val emailInput = etEmail.text.toString().trim()
+            val email = etEmail.text.toString().trim()
             val birthdate = etBirthdate.text.toString().trim()
             val password = etPassword.text.toString().trim()
             val selectedGenderId = rgGender.checkedRadioButtonId
 
-            if (name.isNotEmpty() && emailInput.isNotEmpty() && birthdate.isNotEmpty() && password.isNotEmpty() && selectedGenderId != -1) {
+            if (name.isNotEmpty() && email.isNotEmpty() && birthdate.isNotEmpty() && password.isNotEmpty() && selectedGenderId != -1) {
                 val radioButton = findViewById<RadioButton>(selectedGenderId)
                 val gender = radioButton.text.toString()
                 
-                // Store using lowercase email as document ID
-                saveUserToFirestore(name, emailInput.lowercase(), birthdate, gender, password)
+                signUpUser(name, email, birthdate, gender, password)
             } else {
                 Toast.makeText(this, "Please fill all fields and select a gender", Toast.LENGTH_SHORT).show()
             }
         }
 
         tvLogin.setOnClickListener {
-            finish() // Go back to LoginActivity
+            finish()
         }
     }
 
-    private fun saveUserToFirestore(name: String, email: String, birthdate: String, gender: String, password: String) {
+    private fun signUpUser(name: String, email: String, birthdate: String, gender: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val userId = auth.currentUser?.uid
+                    if (userId != null) {
+                        saveUserToFirestore(userId, name, email, birthdate, gender, password)
+                    }
+                } else {
+                    Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun saveUserToFirestore(userId: String, name: String, email: String, birthdate: String, gender: String, password: String) {
         val user = User(name, email, birthdate, gender, password)
 
-        db.collection("users").document(email)
+        db.collection("users").document(userId)
             .set(user)
             .addOnSuccessListener {
                 Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
-                finish() // Go back to login
+                finish()
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error saving data: ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
 }
