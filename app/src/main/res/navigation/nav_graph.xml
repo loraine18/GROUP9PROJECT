@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:label="Home"
+        tools:layout="@layout/activity_main"
+        app:defaultNavHost="true"
+        />
+
+
+    <fragment
+        android:id="@+id/nav_category"
+        android:label="Category"
+        tools:layout="@layout/activity_login"
+        app:defaultNavHost="true"
+        />
+</navigation>
