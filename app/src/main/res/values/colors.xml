@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FF888888</color>
+    
+    <!-- Light Blue Theme Colors -->
+    <color name="blue_primary">#2196F3</color>
+    <color name="blue_primary_variant">#1976D2</color>
+    <color name="blue_secondary">#03A9F4</color>
+    <color name="blue_background">#E3F2FD</color>
+    <color name="blue_light_surface">#F0F7FF</color>
+    <color name="blue_accent">#00BCD4</color>
 </resources>

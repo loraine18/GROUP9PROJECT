@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="@drawable/blue_gradient_background"
+    android:fillViewport="true"
     tools:context=".LoginActivity">
 
     <LinearLayout
@@ -29,7 +30,9 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -44,7 +47,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundMode="outline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -60,7 +65,8 @@
             android:layout_height="56dp"
             android:text="Login"
             android:textAllCaps="false"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:backgroundTint="@color/blue_primary"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,7 +90,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="Don't have an account? Sign Up"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="@color/blue_primary_variant"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
