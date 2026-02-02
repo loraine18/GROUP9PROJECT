@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "239807743484",
+    "project_id": "wellness-tracker-3a53e",
+    "storage_bucket": "wellness-tracker-3a53e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239807743484:android:2c3bea032454e7ad8c9e79",
+        "android_client_info": {
+          "package_name": "com.example.anima"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239807743484-8pk4er1mmnppcro0l7hdeb0mfp4dkvgj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2AW8aCpxmhzu1ddA6MO9dBz20ZCJaXmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239807743484-8pk4er1mmnppcro0l7hdeb0mfp4dkvgj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
