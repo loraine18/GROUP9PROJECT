@@ -1,4 +1,33 @@
 <resources>
     <string name="app_name">anima</string>
     <string name="default_web_client_id">239807743484-8pk4er1mmnppcro0l7hdeb0mfp4dkvgj.apps.googleusercontent.com</string>
+    <string name="wellness_tracker">Wellness Tracker</string>
+    <string name="hello_user">Hello, User!</string>
+    <string name="monday_oct_23">Monday, Oct 23</string>
+    <string name="sleep">Sleep</string>
+    <string name="sleep_duration_default">7h 20m</string>
+    <string name="good_quality">Good Quality</string>
+    <string name="water">Water</string>
+    <string name="water_intake_default">1.5 L</string>
+    <string name="water_goal_default">Goal: 2.5 L</string>
+    <string name="steps">Steps</string>
+    <string name="step_count_default">6,432</string>
+    <string name="step_goal_default">Goal: 10,000 steps</string>
+    <string name="reminder">REMINDER</string>
+    <string name="reminder_drink_water">Don\'t forget to drink Water!</string>
+    <string name="reminder_go_walk">Go for a Walk!</string>
+    <string name="reminder_sleep_on_time">Sleep on Time</string>
+    
+    <!-- Sign Up Screen -->
+    <string name="create_account">Create Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sex">Sex</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_redirect">Already have an account? Login</string>
 </resources>

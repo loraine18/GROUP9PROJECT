@@ -28,6 +28,26 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".SleepDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".WaterDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".StepsDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
             
     </application>
 
